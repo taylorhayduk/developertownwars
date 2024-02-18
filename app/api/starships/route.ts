@@ -1,9 +1,9 @@
 import { NextRequest } from "next/server";
-import { fetchSwapiStarships } from "../swapi";
+import { Swapi } from "../swapi";
 
 export async function GET(_req: NextRequest) {
   try {
-    const swapiStarships = await fetchSwapiStarships();
+    const swapiStarships = await Swapi.fetchStarships();
     return new Response(JSON.stringify(swapiStarships), {
       status: 200,
       headers: {
