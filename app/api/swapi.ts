@@ -21,7 +21,7 @@ export namespace Swapi {
 
     starships.forEach((starship) => {
       const starshipManufacturers = starship.manufacturer.split(",");
-      starshipManufacturers.forEach((m) => {
+      starshipManufacturers.forEach((m: string) => {
         const mName = m.trim();
         if (!manufacturers.includes(mName)) {
           manufacturers.push(mName);
