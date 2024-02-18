@@ -1,16 +1,26 @@
 import { NextRequest } from "next/server";
 
-// TODO: Implement route to get all starships
-export async function GET(req: NextRequest) {
+export async function GET(_req: NextRequest) {
   try {
-    const starships: any[] = [{ name: "TODO: Get All Starships" }];
+    const starships: any[] = [];
 
-    return new Response(JSON.stringify(starships), {
-      status: 200,
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    let url = "https://swapi.dev/api/starships";
+    while (url) {
+      const response = await fetch(url);
+      const data = await response.json();
+      starships.push(...data.results);
+      url = data.next;
+    }
+
+    return new Response(
+      JSON.stringify({ starships, count: starships.length }),
+      {
+        status: 200,
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
   } catch (error) {
     // Return error response
     return new Response(JSON.stringify(error), {
