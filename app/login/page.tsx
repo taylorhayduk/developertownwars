@@ -1,6 +1,6 @@
 "use client";
 
-import { authenticate } from "@/app/api/actions";
+import { authenticate } from "@/app/api/auth";
 import { useFormState, useFormStatus } from "react-dom";
 import { redirect } from "next/navigation";
 
