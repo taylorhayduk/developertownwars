@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+
 import styles from "./Header.module.css";
 import Image from "next/image";
 import Button from "../Button/Button";

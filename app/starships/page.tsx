@@ -1,10 +1,10 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { logout } from "@/app/api/auth";
 import { Starship } from "../types/starship";
 import Link from "next/link";
 import Header from "../components/Header/Header";
+import style from "./starships.module.css";
 
 export default function Page() {
   const [selectedManufacturer, setSelectedManufacturer] = useState("");
@@ -45,15 +45,8 @@ export default function Page() {
   return (
     <div>
       <Header />
-      <button
-        onClick={async () => {
-          await logout();
-          location.reload();
-        }}
-      >
-        Logout
-      </button>
       <select
+        className={style.select}
         value={selectedManufacturer}
         onChange={(e) => setSelectedManufacturer(e.target.value)}
       >
@@ -62,7 +55,7 @@ export default function Page() {
           <option key={manufacturer}>{manufacturer}</option>
         ))}
       </select>
-      <table>
+      <table className={style.table}>
         <tbody>
           <tr>
             <th>Name</th>

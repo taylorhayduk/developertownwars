@@ -1,6 +1,7 @@
 "use server";
 
 import { Swapi } from "@/app/api/swapi";
+import Header from "@/app/components/Header/Header";
 import { Starship } from "@/app/types/starship";
 import Link from "next/link";
 
@@ -13,6 +14,7 @@ export default async function Page({
 
   return (
     <div>
+      <Header />
       <Link href="/starships">All Starships</Link>
 
       <h1>{starship.name}</h1>

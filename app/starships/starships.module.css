@@ -1,0 +1,34 @@
+.select {
+  padding: 8px;
+  border: 1px solid #0C3858;
+  border-radius: 4px;
+  font-size: 14px;
+  width: 500px;
+  margin-bottom: 16px; /* Added space under select */
+}
+
+/* Styles for the table */
+.table-container {
+  overflow-y: auto; /* Added scrollable behavior */
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  padding: 8px;
+  border: 1px solid #0C3858;
+}
+
+.table th {
+  background-color: #0C3858;
+  color: white; /* Added white text color */
+  font-weight: bold;
+}
+
+.table td {
+  text-align: center;
+}
