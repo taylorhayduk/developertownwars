@@ -24,7 +24,10 @@ export namespace Swapi {
       };
     }
 
-    return { starships, count: starships.length };
+    return {
+      starships: starships.sort((s1, s2) => s1.name.localeCompare(s2.name)),
+      count: starships.length,
+    };
   }
 
   export async function fetchStarship(id: string): Promise<Starship> {
