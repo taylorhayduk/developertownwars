@@ -24,7 +24,7 @@ export default function Page() {
 
   useEffect(() => {
     setStarships([]);
-    const fetchManufacturers = async () => {
+    const fetchStarships = async () => {
       try {
         const response = await fetch(
           `/api/starships?manufacturer=${selectedManufacturer}`
@@ -36,7 +36,7 @@ export default function Page() {
       }
     };
 
-    fetchManufacturers();
+    fetchStarships();
   }, [selectedManufacturer]);
 
   return (

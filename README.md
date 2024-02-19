@@ -1,36 +1,39 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Star Wars Challenge - Next.js Project by Taylor Hayduk
+
+## Overview
+
+This project is a part of a take-home assessment for the Star Wars challenge. It's built using Next.js and adheres to the back-ends for front-ends (BFF) pattern for its architecture. The application features a rudimentary authentication system and provides information on Star Wars starships and manufacturers.
+
+## Features
+
+- **Authentication System**: A simple authentication system is implemented in `auth.ts`, utilizing JWT for session encryption and decryption. It currently allows a single, hard-coded user.
+
+- **Middleware**: In `middlewares.ts`, the application checks for session existence on any backend requests. If a session is not found, it redirects the user to the login page, effectively securing all endpoints except the login page.
+
+- **Pages**:
+  - **Login Page**: A basic form that logs the user in.
+  - **Starships Page**: Once authenticated, the user is redirected here. This page fetches and displays starships and manufacturers. It dynamically updates the list of starships when a manufacturer is selected.
+
+## Technical Details
+
+- **Backend Architecture**: Follows the Next.js BFF pattern.
+- **API Routes**:
+
+  - `/api/manufacturers`: Handles fetching of manufacturers.
+  - `/api/starships`: Deals with fetching starships, including parsing through multiple pages to retrieve all available starships.
+
+- **Data Fetching**:
+  - **Swapi Namespace**: A set of functions (`fetchStarships`, `fetchManufacturers`) for interacting with the Star Wars API (Swapi), designed for scalability despite currently having only two main functions.
+
+## Improvements
+
+While the application serves its purpose, there are areas for improvement, such as incorporating `getStaticProps` for better data fetching efficiency. However, given the simplicity of this example, such enhancements were not implemented.
 
 ## Getting Started
 
-First, run the development server:
+To run this project locally:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+1. Clone the repository.
+2. Install dependencies with `npm install`.
+3. Start the development server with `npm run dev`.
+4. Navigate to `http://localhost:3000` to view the application.

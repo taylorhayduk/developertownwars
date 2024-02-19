@@ -40,6 +40,6 @@ export namespace Swapi {
       });
     });
 
-    return manufacturers;
+    return manufacturers.sort();
   }
 }
