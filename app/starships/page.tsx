@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { logout } from "@/app/api/auth";
 import { Starship } from "../types/starship";
 import Link from "next/link";
+import Header from "../components/Header/Header";
 
 export default function Page() {
   const [selectedManufacturer, setSelectedManufacturer] = useState("");
@@ -43,6 +44,7 @@ export default function Page() {
 
   return (
     <div>
+      <Header />
       <button
         onClick={async () => {
           await logout();

@@ -3,8 +3,9 @@
 import { authenticate } from "@/app/api/auth";
 import { useFormState, useFormStatus } from "react-dom";
 import { redirect } from "next/navigation";
-import styles from "@/app/login/page.module.css";
+import styles from "./page.module.css";
 import Image from "next/image";
+import Button from "../components/Button/Button";
 
 export default function Page() {
   const [authenticateResponse, formAction] = useFormState(
@@ -53,12 +54,8 @@ function LoginButton() {
   const status = useFormStatus();
 
   return (
-    <button
-      aria-disabled={status.pending}
-      type="submit"
-      className={styles.button}
-    >
+    <Button aria-disabled={status.pending} type="submit">
       Login
-    </button>
+    </Button>
   );
 }
