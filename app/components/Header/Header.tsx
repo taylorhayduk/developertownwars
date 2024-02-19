@@ -11,11 +11,11 @@ const Header: React.FC = () => {
     <header className={styles.header}>
       <Link href="/">
         <Image
-          src="/dtLogo.png"
+          src="/dtWarsLogo.png"
           alt="DeveloperTown Logo"
           className={styles.logo}
-          width={200}
-          height={40}
+          width={300}
+          height={60}
         />
       </Link>
       <Button

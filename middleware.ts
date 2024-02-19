@@ -10,7 +10,8 @@ export async function middleware(request: NextRequest) {
   if (
     !session?.email &&
     !request.url.includes("/login") &&
-    !request.url.includes("dtLogo.png")
+    !request.url.includes("dtLogo.png") &&
+    !request.url.includes("dtWarsLogo.png")
   ) {
     return NextResponse.redirect(new URL("/login", request.url));
   }

@@ -20,11 +20,11 @@ export default function Page() {
   return (
     <div className={styles.container}>
       <Image
-        src="/dtLogo.png"
+        src="/dtWarsLogo.png"
         alt="DeveloperTown Logo"
         className={styles.logo}
-        width={200}
-        height={40}
+        width={300}
+        height={60}
       />
       <form action={formAction} className={styles.form}>
         <input
