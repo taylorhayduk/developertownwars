@@ -64,7 +64,7 @@ export async function authenticate(_prevState: any, formData: FormData) {
     if (error) {
       switch (error.message) {
         case "CredentialsSignin":
-          return `Invalid credentials. Hey Developertown friends! The username should be "${exampleUserCreds.email}" with password "${exampleUserCreds.password}"`;
+          return `Invalid credentials. Hey DeveloperTown friends! The username should be "${exampleUserCreds.email}" with password "${exampleUserCreds.password}"`;
         default:
           return "Something went wrong.";
       }
