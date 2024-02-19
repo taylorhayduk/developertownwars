@@ -4,6 +4,10 @@
 
 This project is a part of a take-home assessment for the Star Wars challenge. It's built using Next.js and adheres to the back-ends for front-ends (BFF) pattern for its architecture. The application features a rudimentary authentication system and provides information on Star Wars starships and manufacturers.
 
+## Deployment
+
+This project is deployed on Vercel and is available at [developertownwars.vercel.app](https://developertownwars.vercel.app/).
+
 ## Features
 
 - **Authentication System**: A simple authentication system is implemented in `auth.ts`, utilizing JWT for session encryption and decryption. It currently allows a single, hard-coded user.
@@ -21,13 +25,16 @@ This project is a part of a take-home assessment for the Star Wars challenge. It
 
   - `/api/manufacturers`: Handles fetching of manufacturers.
   - `/api/starships`: Deals with fetching starships, including parsing through multiple pages from StarWars API to retrieve all available starships. It also allows for filtering by manufacturer.
+  - `/api/starships/[shipId]`: Fetch individual ship.
 
 - **Data Fetching**:
-  - **Swapi Namespace**: A set of functions (`fetchStarships`, `fetchManufacturers`) for interacting with the Star Wars API (Swapi), designed for scalability despite currently having only two main functions.
+  - **Swapi Namespace**: A set of functions (`fetchStarships`, `fetchStarship`, `fetchManufacturers`) for interacting with the Star Wars API (Swapi), designed for scalability despite currently having only two main functions.
 
 ## Extras
 
 I implemented a Starship page to show all starship details. This utilizes the lastest NextJS syntax for server-side rendering.
+
+I started a `/app/components` directory for staring of front-end components.
 
 ## Improvements
 
