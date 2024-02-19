@@ -27,6 +27,12 @@ export namespace Swapi {
     return { starships, count: starships.length };
   }
 
+  export async function fetchStarship(id: string): Promise<Starship> {
+    console.log(`fetchting https://swapi.dev/api/starships/${id}`);
+    const response = await fetch(`https://swapi.dev/api/starships/${id}`);
+    return response.json();
+  }
+
   export async function fetchManufacturers(): Promise<any[]> {
     const { starships } = await fetchStarships();
 
