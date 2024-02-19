@@ -33,7 +33,7 @@ export namespace Swapi {
     const manufacturers: string[] = [];
 
     starships.forEach((starship) => {
-      const starshipManufacturers = starship.manufacturer.split(",");
+      const starshipManufacturers = starship.manufacturer.split(/,(?!\s*Inc)/); // Don't split on "Inc" in the manufacturer name
       starshipManufacturers.forEach((m: string) => {
         const mName = m.trim();
         if (!manufacturers.includes(mName)) {
