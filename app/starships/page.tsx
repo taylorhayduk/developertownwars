@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { logout } from "@/app/api/auth";
 import { Starship } from "../types/starship";
+import Link from "next/link";
 
 export default function Page() {
   const [selectedManufacturer, setSelectedManufacturer] = useState("");
@@ -66,13 +67,20 @@ export default function Page() {
             <th>Model</th>
             <th>Manufacturer</th>
           </tr>
-          {starships?.map((starship) => (
-            <tr key={starship.name}>
-              <td>{starship.name}</td>
-              <td>{starship.model}</td>
-              <td>{starship.manufacturer}</td>
-            </tr>
-          ))}
+          {starships?.map((starship) => {
+            const parts = starship.url.split("/"); // Splits the URL into parts
+            const id = parts.pop() || parts.pop(); // Grabs the last part of the URL
+
+            return (
+              <tr key={starship.name}>
+                <td>
+                  <Link href={`/starships/${id}`}>{starship.name}</Link>
+                </td>
+                <td>{starship.model}</td>
+                <td>{starship.manufacturer}</td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
     </div>

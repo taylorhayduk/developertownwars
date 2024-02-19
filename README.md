@@ -25,6 +25,10 @@ This project is a part of a take-home assessment for the Star Wars challenge. It
 - **Data Fetching**:
   - **Swapi Namespace**: A set of functions (`fetchStarships`, `fetchManufacturers`) for interacting with the Star Wars API (Swapi), designed for scalability despite currently having only two main functions.
 
+## Extras
+
+I implemented a Starship page to show all starship details. This utilizes the lastest NextJS syntax for server-side rendering.
+
 ## Improvements
 
 While the application serves its purpose, there are areas for improvement, such as incorporating `getStaticProps` for better data fetching efficiency.
