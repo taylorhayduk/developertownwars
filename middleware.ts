@@ -6,6 +6,7 @@ export async function middleware(request: NextRequest) {
   const session = await getSession();
 
   // Redirect to login if not logged in
+  // This also prevents any unauthorized access to the app
   if (!session?.email && !request.url.includes("/login")) {
     return NextResponse.redirect(new URL("/login", request.url));
   }

@@ -1,8 +1,44 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { logout } from "@/app/api/auth";
 
 export default function Page() {
+  const [selectedManufacturer, setSelectedManufacturer] = useState("");
+  const [manufacturers, setManufacturers] = useState<string[]>([]);
+  const [starships, setStarships] = useState<object[]>([]);
+
+  useEffect(() => {
+    const fetchManufacturers = async () => {
+      try {
+        const response = await fetch(`/api/manufacturers`);
+        const data = await response.json();
+        setManufacturers(data);
+      } catch (error) {
+        console.error("Error fetching manufacturers:", error);
+      }
+    };
+
+    fetchManufacturers();
+  }, []);
+
+  useEffect(() => {
+    setStarships([]);
+    const fetchManufacturers = async () => {
+      try {
+        const response = await fetch(
+          `/api/starships?manufacturer=${selectedManufacturer}`
+        );
+        const data = await response.json();
+        setStarships(data.starships);
+      } catch (error) {
+        console.error("Error fetching manufacturers:", error);
+      }
+    };
+
+    fetchManufacturers();
+  }, [selectedManufacturer]);
+
   return (
     <div>
       <button
@@ -13,6 +49,15 @@ export default function Page() {
       >
         Logout
       </button>
+      <select
+        value={selectedManufacturer}
+        onChange={(e) => setSelectedManufacturer(e.target.value)}
+      >
+        <option value="">Select a manufacturer</option>
+        {manufacturers?.map((manufacturer) => (
+          <option key={manufacturer}>{manufacturer}</option>
+        ))}
+      </select>
       <table>
         <tbody>
           <tr>
@@ -20,6 +65,13 @@ export default function Page() {
             <th>Model</th>
             <th>Manufacturer</th>
           </tr>
+          {starships?.map((starship) => (
+            <tr key={starship.name}>
+              <td>{starship.name}</td>
+              <td>{starship.model}</td>
+              <td>{starship.manufacturer}</td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>

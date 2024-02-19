@@ -1,5 +1,5 @@
 export namespace Swapi {
-  export async function fetchStarships(): Promise<{
+  export async function fetchStarships(manufacturer?: string): Promise<{
     starships: any[];
     count: number;
   }> {
@@ -11,6 +11,17 @@ export namespace Swapi {
       starships.push(...data.results);
       url = data.next;
     }
+
+    if (manufacturer) {
+      const filteredStarships = starships.filter((starship) =>
+        starship.manufacturer.includes(manufacturer)
+      );
+      return {
+        starships: filteredStarships,
+        count: filteredStarships.length,
+      };
+    }
+
     return { starships, count: starships.length };
   }
 
