@@ -2,11 +2,12 @@
 
 import { useState, useEffect } from "react";
 import { logout } from "@/app/api/auth";
+import { Starship } from "../types/starship";
 
 export default function Page() {
   const [selectedManufacturer, setSelectedManufacturer] = useState("");
   const [manufacturers, setManufacturers] = useState<string[]>([]);
-  const [starships, setStarships] = useState<object[]>([]);
+  const [starships, setStarships] = useState<Starship[]>([]);
 
   useEffect(() => {
     const fetchManufacturers = async () => {

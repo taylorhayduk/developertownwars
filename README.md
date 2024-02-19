@@ -20,14 +20,14 @@ This project is a part of a take-home assessment for the Star Wars challenge. It
 - **API Routes**:
 
   - `/api/manufacturers`: Handles fetching of manufacturers.
-  - `/api/starships`: Deals with fetching starships, including parsing through multiple pages to retrieve all available starships.
+  - `/api/starships`: Deals with fetching starships, including parsing through multiple pages from StarWars API to retrieve all available starships. It also allows for filtering by manufacturer.
 
 - **Data Fetching**:
   - **Swapi Namespace**: A set of functions (`fetchStarships`, `fetchManufacturers`) for interacting with the Star Wars API (Swapi), designed for scalability despite currently having only two main functions.
 
 ## Improvements
 
-While the application serves its purpose, there are areas for improvement, such as incorporating `getStaticProps` for better data fetching efficiency. However, given the simplicity of this example, such enhancements were not implemented.
+While the application serves its purpose, there are areas for improvement, such as incorporating `getStaticProps` for better data fetching efficiency.
 
 ## Getting Started
 

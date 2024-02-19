@@ -1,9 +1,11 @@
+import { Starship } from "../types/starship";
+
 export namespace Swapi {
   export async function fetchStarships(manufacturer?: string): Promise<{
-    starships: any[];
+    starships: Starship[];
     count: number;
   }> {
-    const starships: any[] = [];
+    const starships: Starship[] = [];
     let url = "https://swapi.dev/api/starships";
     while (url) {
       const response = await fetch(url);
