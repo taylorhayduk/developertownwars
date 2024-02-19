@@ -9,7 +9,8 @@ export async function middleware(request: NextRequest) {
   // This also prevents any unauthorized access to the app
   if (
     !session?.email &&
-    (!request.url.includes("/login") || !request.url.includes("dtLogo.png"))
+    !request.url.includes("/login") &&
+    !request.url.includes("dtLogo.png")
   ) {
     return NextResponse.redirect(new URL("/login", request.url));
   }
