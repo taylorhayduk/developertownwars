@@ -4,17 +4,11 @@ import { getSession } from "./app/api/auth";
 
 export async function middleware(request: NextRequest) {
   const session = await getSession();
-  if (session?.email) {
-    if (request.url.includes("/starship")) {
-      return NextResponse.next();
-    }
-    return NextResponse.redirect(new URL("/starship", request.url));
-  }
 
-  if (request.url.includes("/login")) {
-    return NextResponse.next();
+  // Redirect to login if not logged in
+  if (!session?.email && !request.url.includes("/login")) {
+    return NextResponse.redirect(new URL("/login", request.url));
   }
-  return NextResponse.redirect(new URL("/login", request.url));
 }
 
 export const config = {
